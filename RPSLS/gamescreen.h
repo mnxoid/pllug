@@ -23,7 +23,6 @@ private:
     void colorify();
     void stateChange(int i, int newstate);
     RPSLS_Core core;
-    void thrfun();
 
 protected:
     void mouseMoveEvent(QMouseEvent *e);
