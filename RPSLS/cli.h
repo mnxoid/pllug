@@ -10,6 +10,7 @@ public:
     void play();
 private:
     int menu();
+    void game_play();
     RPSLS_Core _core;
 };
 

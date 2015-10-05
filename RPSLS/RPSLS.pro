@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         homescreen.cpp \
     cli.cpp \
-    rpsls_core.cpp
+    rpsls_core.cpp \
+    util.cpp
 
 HEADERS  += homescreen.h \
     cli.h \
-    rpsls_core.h
+    rpsls_core.h \
+    util.h
 
 FORMS    += homescreen.ui

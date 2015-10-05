@@ -2,8 +2,7 @@
 #define RPSLS_CORE_H
 
 #include <vector>
-#define WON 1
-#define LOST 0
+#include <string>
 
 using namespace std;
 
@@ -17,7 +16,10 @@ class RPSLS_Core
 {
 public:
     RPSLS_Core();
-    GameResult play(int choice);
+    GameResult play(int choice, int iterations);
+    string message(int a, int b);
+private:
+    int result();
 };
 
 #endif // RPSLS_CORE_H
