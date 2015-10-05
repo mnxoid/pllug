@@ -10,7 +10,7 @@ string names[] = {
     "Spock"
 };
 
-string actions[] = {
+string RPSLS_Core::actions[] = {
     "vaporizes",
     "disproves",
     "smashes",

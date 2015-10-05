@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/RPSLS.png</file>
+    </qresource>
+    <qresource prefix="/Blue">
+        <file>resources/Blue/Lizard_b.png</file>
+        <file>resources/Blue/Paper_b.png</file>
+        <file>resources/Blue/Rock_b.png</file>
+        <file>resources/Blue/Scissors_b.png</file>
+        <file>resources/Blue/Spock_b.png</file>
+    </qresource>
+    <qresource prefix="/Red">
+        <file>resources/Red/Lizard_r.png</file>
+        <file>resources/Red/Paper_r.png</file>
+        <file>resources/Red/Rock_r.png</file>
+        <file>resources/Red/Scissors_r.png</file>
+        <file>resources/Red/Spock_r.png</file>
+    </qresource>
+    <qresource prefix="/Green">
+        <file>resources/Green/Lizard_g.png</file>
+        <file>resources/Green/Paper_g.png</file>
+        <file>resources/Green/Rock_g.png</file>
+        <file>resources/Green/Scissors_g.png</file>
+        <file>resources/Green/Spock_g.png</file>
+    </qresource>
+</RCC>

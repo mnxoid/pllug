@@ -1,7 +1,9 @@
-#include "homescreen.h"
+#include "windowmanager.h"
 #include <QApplication>
 #include <string.h>
 #include "cli.h"
+
+WindowManager WM;
 
 int main(int argc, char *argv[])
 {
@@ -11,8 +13,13 @@ int main(int argc, char *argv[])
         return 0;
     }
     QApplication a(argc, argv);
-    HomeScreen w;
-    w.show();
+    HomeScreen hs;
+    AboutWindow aw;
+    GameScreen gs;
+    WM.hs=&hs;
+    WM.aw=&aw;
+    WM.gs=&gs;
+    hs.show();
 
     return a.exec();
 }

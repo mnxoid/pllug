@@ -20,6 +20,7 @@ public:
     string message(int a, int b);
 private:
     int result();
+    static string actions[];
 };
 
 #endif // RPSLS_CORE_H
