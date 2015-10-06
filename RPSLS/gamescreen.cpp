@@ -8,6 +8,8 @@
 #include <chrono>
 #include <QMessageBox>
 #include "windowmanager.h"
+#include <QRect>
+#include <QDesktopWidget>
 
 extern WindowManager WM;
 
@@ -42,6 +44,10 @@ GameScreen::GameScreen(QWidget *parent) :
 //    ui->lizard->setMouseTracking(true);
     ui->spock->setMouseTracking(true);
     GameScreen::centralWidget()->setMouseTracking(true);
+    QRect position = frameGeometry();
+    position.moveCenter(QDesktopWidget().availableGeometry().center());
+    move(position.topLeft());
+    setFixedSize(size());
 }
 
 GameScreen::~GameScreen()

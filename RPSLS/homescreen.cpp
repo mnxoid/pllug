@@ -1,6 +1,8 @@
 #include "homescreen.h"
 #include "ui_homescreen.h"
 #include "windowmanager.h"
+#include <QRect>
+#include <QDesktopWidget>
 
 extern WindowManager WM;
 
@@ -9,6 +11,10 @@ HomeScreen::HomeScreen(QWidget *parent) :
     ui(new Ui::HomeScreen)
 {
     ui->setupUi(this);
+    QRect position = frameGeometry();
+    position.moveCenter(QDesktopWidget().availableGeometry().center());
+    move(position.topLeft());
+    setFixedSize(size());
 }
 
 HomeScreen::~HomeScreen()
