@@ -32,6 +32,8 @@ GameScreen::GameScreen(QWidget *parent) :
         pixmaps[i][1]=QPixmap(QString::fromStdString(":/Green/resources/Green/"+names[i]+"_g.png"));
         pixmaps[i][2]=QPixmap(QString::fromStdString(":/Red/resources/Red/"+names[i]+"_r.png"));
     }
+    pixmaps[5][0]=QPixmap(QString::fromStdString(":/resources/RPSLS.png"));
+    pixmaps[5][1]=QPixmap(QString::fromStdString(":/resources/RPSLS1.png"));
     this->setMouseTracking(true);
     ui->setupUi(this);
 //    ui->rock->setMouseTracking(true);
@@ -51,34 +53,40 @@ void GameScreen::mouseMoveEvent(QMouseEvent *e)
 {
     double x=e->x();
     double y=e->y();
-    double R_d, P_d, Sc_d, L_d, Sp_d;
-    R_d = sqrt((x-210)*(x-210)+(y-70)*(y-70))-66;
-    P_d = sqrt((x-348)*(x-348)+(y-170)*(y-170))-66;
-    Sc_d = sqrt((x-300)*(x-300)+(y-325)*(y-325))-66;
-    L_d = sqrt((x-125)*(x-125)+(y-325)*(y-325))-66;
-    Sp_d = sqrt((x-74)*(x-74)+(y-170)*(y-170))-66;
-    if(R_d<0)
+    if(x>=12&&x<=112&&y>=15&&y<=55)
     {
-//        QToolTip::showText(e->pos(),QString::fromStdString("Rock"));
-        stateChange(0,1);
-    } else if (P_d<0) {
-//        QToolTip::showText(e->pos(),QString::fromStdString("Paper"));
-        stateChange(1,1);
-    } else if (Sc_d<0) {
-//        QToolTip::showText(e->pos(),QString::fromStdString("Scissors"));
-        stateChange(2,1);
-    } else if (L_d<0) {
-//        QToolTip::showText(e->pos(),QString::fromStdString("Lizard"));
-        stateChange(3,1);
-    } else if (Sp_d<0) {
-//        QToolTip::showText(e->pos(),QString::fromStdString("Spock"));
-        stateChange(4,1);
+        ui->bg->setPixmap(pixmaps[5][1]);
     } else {
-        for(int i=0;i<5;i++)stateChange(i,0);
-//        QString text = QString::fromStdString(string("")+to_string(e->x())+";"+to_string(e->y()));
-//        QToolTip::showText(e->pos(),text);
+        ui->bg->setPixmap(pixmaps[5][0]);
+        double R_d, P_d, Sc_d, L_d, Sp_d;
+        R_d = sqrt((x-210)*(x-210)+(y-70)*(y-70))-66;
+        P_d = sqrt((x-348)*(x-348)+(y-170)*(y-170))-66;
+        Sc_d = sqrt((x-300)*(x-300)+(y-325)*(y-325))-66;
+        L_d = sqrt((x-125)*(x-125)+(y-325)*(y-325))-66;
+        Sp_d = sqrt((x-74)*(x-74)+(y-170)*(y-170))-66;
+        if(R_d<0)
+        {
+    //        QToolTip::showText(e->pos(),QString::fromStdString("Rock"));
+            stateChange(0,1);
+        } else if (P_d<0) {
+    //        QToolTip::showText(e->pos(),QString::fromStdString("Paper"));
+            stateChange(1,1);
+        } else if (Sc_d<0) {
+    //        QToolTip::showText(e->pos(),QString::fromStdString("Scissors"));
+            stateChange(2,1);
+        } else if (L_d<0) {
+    //        QToolTip::showText(e->pos(),QString::fromStdString("Lizard"));
+            stateChange(3,1);
+        } else if (Sp_d<0) {
+    //        QToolTip::showText(e->pos(),QString::fromStdString("Spock"));
+            stateChange(4,1);
+        } else {
+            for(int i=0;i<5;i++)stateChange(i,0);
+    //        QString text = QString::fromStdString(string("")+to_string(e->x())+";"+to_string(e->y()));
+    //        QToolTip::showText(e->pos(),text);
+        }
+        colorify();
     }
-    colorify();
 }
 
 void GameScreen::colorify()

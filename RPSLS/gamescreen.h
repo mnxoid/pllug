@@ -19,7 +19,7 @@ public:
 private:
     Ui::GameScreen *ui;
     int states[5];
-    QPixmap pixmaps[5][3];
+    QPixmap pixmaps[6][3];
     void colorify();
     void stateChange(int i, int newstate);
     RPSLS_Core core;
