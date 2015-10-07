@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Rock, Paper, Scissors, Lizard, Spoke</string>
+   <string>Rock, Paper, Scissors, Lizard, Spock</string>
   </property>
   <property name="windowIcon">
    <iconset resource="Resources.qrc">
