@@ -1,6 +1,11 @@
 #include <iostream>
 #include <typeinfo>
 #include <string>
+#include <memory> //for unique_ptr
+#include <algorithm>
+
+#include "testclass.h"
+#include "block.h"
 
 using namespace std;
 
@@ -16,7 +21,7 @@ int f1(int i)
     return i;
 }
 
-int main()
+int main1()
 {
     int a{5};
     int *pa{&a};
@@ -46,4 +51,40 @@ int main()
     return 0;
 }
 
+typedef TestClass tc;
 
+int main()
+{
+//    auto block = [](string s){
+//        return make_unique<Block>(s);
+//    };
+    {
+        Block a;
+        tc t1;
+        tc t2;
+    }
+    {
+        Block a;
+        tc *t1 {new tc};
+        tc *t2 {new tc};
+//        t1 = t2;
+        delete t1;
+        delete t2;
+    }
+    {
+        Block a;
+        unique_ptr<tc> p1{new tc};
+    }
+    {
+        Block a;
+        unique_ptr<tc> p1 = make_unique<tc>();
+    }
+    {
+        Block a(string("You cant copy unique_ptr"));
+        auto t1 = make_unique<tc>();
+        auto func = [](tc *t1) {cout << t1 << " used in function" << endl;};
+//        func(t1);
+        func(t1.get());
+    }
+    return 0;
+}
